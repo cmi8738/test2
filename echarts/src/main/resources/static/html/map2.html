@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript"
+                                src="http://api.map.baidu.com/api?
+            v=2.0&ak=YIqwH9v17DwAtVTO65DnfdqXApkpTflX">
+
+</script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/bmap.js"></script>
+    <script>
+        function pm2(){
+            var chart = echarts.init(document.getElementById("first"));
+
+            var option={
+                tooltip:{
+                  trigger:"item",
+                  formatter:"{b} <br/> {c}"
+                },
+                bmap:{
+                    //地图的中心店
+                    center:[113.65,34.76],
+                    zoom:6,
+                    roam:true
+                },
+                series:[{
+                    type:"effectScatter",//散点图
+                    coordinateSystem:"bmap",
+                    data:[
+                        {name:"郑州",value:[113.65,34.76,200]}
+                    ]
+
+                }]
+            }
+            chart.setOption(option);
+
+
+        }
+        function  move() {
+            var chart = echarts.init(document.getElementById("first"));
+
+            var option= {
+
+                bmap:{
+                    //地图的中心店
+                    center:[113.65,34.76],
+                    zoom:6,
+                    roam:true
+                },
+                series:[{
+                    type:"lines",
+                    coordinateSystem:"bmap",
+                    data:[
+                        {forName:"北京",toName:"上海",coords:[
+                            [116.4554,40.2359],[121.3648,31.2891]
+                            ]}
+
+                    ]
+                }]
+
+            }
+            chart.setOption(option);
+
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="first" style="width: 700px;height: 400px">
+
+
+    </div>
+
+    <button onclick="pm2()">pm2.5</button>
+    <button onclick="move()">迁移图</button>
+
+</body>
+</html>

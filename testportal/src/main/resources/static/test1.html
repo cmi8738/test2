@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <script>
+
+        function sum(x){
+            alert(x);
+        }
+
+        function call(){
+
+            $.ajax({
+               url:"http://localhost:8083/test2/test3",
+                method:"get",
+                dataType:"jsonp"
+
+
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+    <button onclick="call()">点击一下</button>
+</body>
+</html>

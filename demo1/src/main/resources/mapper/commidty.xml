@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zms.demo1.CDao.CommidtyDao">
+    <select id="findAllCommidty" resultType="com.zms.demo1.entiy.Commidty">
+        select * from commidity
+    </select>
+    <insert id="addCommidty" parameterType="com.zms.demo1.entiy.Commidty">
+        insert into commidity(cname,cid,price,imid)VALUES (#{cname},#{cid},#{price},#{imid})
+    </insert>
+
+    <select id="findCommidtyDaoByCid" resultType="com.zms.demo1.entiy.Commidty">
+        select * from commidity where cid = #{cid}
+    </select>
+</mapper>
+

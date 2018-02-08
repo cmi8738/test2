@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chinamap</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/china.js"></script>
+
+    <script>
+        function  chinamap() {
+            var map = echarts.init(document.getElementById('map-wrap'));
+
+            var option = {
+              geo:{
+                  map:'china'
+              }
+            };
+            map.setOption(option);
+
+        }
+
+
+        function chinamap2(){
+            $.get('../json/china.json',function(chinaJson){
+               //注册地图
+                echarts.registerMap('china',chinaJson);
+
+                var map = echarts.init(document.getElementById('map-wrap'));
+
+                var option= {
+                    geo: {
+                        map: 'china',
+
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#323c48',
+                                borderColor: '#111'
+                            },
+                            emphasis: {
+                                areaColor: '#2a33d'
+                            }
+                        }
+                    },
+                    backgroundColor:'#404a59'
+
+                }
+                map.setOption(option);
+
+            });
+
+
+
+        }
+
+        function show(){
+            //初始化地图组件
+            var map = new BMap.Map("first");
+            //经纬度坐标
+            var point  = new  BMap.point();
+            map._updateCenterAndZoom(point,15);
+
+        }
+        function dingwei(){
+            //获取定位组件
+            var x = new BMap.Geolocation();
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="map-wrap" style="height: 500px">
+        <!--this is map-->
+
+    </div>
+    <button onclick="chinamap()">中国地图</button>
+    <button onclick="chinamap2()">中国地图二</button>
+</body>
+</html>

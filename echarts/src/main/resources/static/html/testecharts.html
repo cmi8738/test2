@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/1.js"></script>
+    <script>
+        function bar(){
+
+            //初始化
+            var chart = echarts.init(document.getElementById("first"));
+            var option={
+
+                xAxis:{
+                    data:["一月","二月","三月"]
+                },
+                yAxis:{},
+                series:{
+                    type:"bar",
+                    data:[100,900,400]
+                }
+
+            };
+            //使用数据
+            chart.setOption(option);
+
+
+        }
+
+        function pie2(){
+            var chart = echarts.init(document.getElementById("first"));
+            var option = {
+                tooltip:{
+                    trigger:"item",
+                    formatter:"{b} - {c}"
+                },
+                series:{
+                    type:"pie",
+                    data:[
+                        {name:"郑州",value:30},
+                        {name:"开封",value:10},
+                        {name:"上海",value:60}
+                    ]
+                }
+            };
+            chart.setOption(option);
+
+        }
+
+        function world(){
+            //1.初始化
+            var chart = echarts.init(document.getElementById("first"));
+            var option = {
+                series:[{
+                    type:'map3D',
+                    map:'world'
+                }]
+            };
+            chart.setOption(option);
+
+
+        }
+
+        function draw2(){
+            //得到对象
+            var root = document.getElementById("second");
+            //绘制上下文
+            var ctx = root.getContext("2d");
+            //指定画布的颜色
+            ctx.fillStyle="yellow";
+            //绘制矩形
+            ctx.fillRect(30,40,100,200);
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="first" style="width:400px;height: 400px"></div>
+    <canvas id="second" style="width:400px;height: 400px"></canvas>
+    <button onclick="bar()">柱状图</button>
+    <button onclick="pie2()">饼状图</button>
+    <button onclick="world()">世界地图</button>
+    <button onclick="draw2()">原理</button>
+
+
+</body>
+</html>

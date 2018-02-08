@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript"
+                 src="http://api.map.baidu.com/api?
+            v=2.0&ak=YIqwH9v17DwAtVTO65DnfdqXApkpTflX">
+
+</script>
+    <script>
+        var map;
+        function  show(p) {
+            map = new  BMap.Map("first");
+        if (p){
+            map.centerAndZoom(p,15);
+        } else {
+
+            var point  = new BMap.Point(113.65,34.76);map.centerAndZoom(point,11);
+
+        }
+
+        }
+
+        function dingwei(){
+            //获取定位组件
+            var x = new BMap.Geolocation();
+            x.getCurrentPosition(function(position){
+                //show(position.point);
+                address2(position.point);
+            });
+        }
+        dingwei();
+        function  address2(p) {
+            var a = document.getElementById("first");
+            var x = new BMap.Geocoder();
+            x.getLocation(p,function(d){
+                //alert(d.address);
+                a.innerHTML=d.address;
+            });
+
+
+        }
+
+        function  inter() {
+            var a = new BMap.LocalSearch(map,{
+                renderOptions:{map:map,autoViewport:true}
+            });
+            a.searchNearby("厕所","航海路",10);
+        }
+
+        //导航
+        function nav(){
+        var x = new BMap.WalkingRoute(map,{
+            renderOptions:{map:map,autoViewport:true}
+        });
+           x.search("汽车客运总站","火车站");
+        }
+
+
+
+    </script>
+
+
+</head>
+<body>
+    <div id="first" style="width:600px;height: 600px"></div>
+    <button onclick="show()">地图</button>
+    <button onclick="dingwei()">定位</button>
+    <button onclick="address2()">行政位置</button>
+    <button onclick="inter()">poi搜索</button>
+    <button onclick="nav()">导航</button>
+
+
+
+
+
+
+
+
+</body>
+</html>

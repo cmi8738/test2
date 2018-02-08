@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="actiontest" />
+        <module name="cross" />
+        <module name="demo" />
+        <module name="demo1" />
+        <module name="demo3" />
+        <module name="demoport" />
+        <module name="demoresultful" />
+        <module name="domain" />
+        <module name="echarts" />
+        <module name="mall" />
+        <module name="nio" />
+        <module name="ppportal" />
+        <module name="qqlogin" />
+        <module name="sso" />
+        <module name="testcheck" />
+        <module name="zmstest1" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="actiontest" target="1.8" />
+      <module name="cross" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="demo1" target="1.8" />
+      <module name="demo3" target="1.8" />
+      <module name="demoport" target="1.8" />
+      <module name="demoresultful" target="1.8" />
+      <module name="demotest" target="1.8" />
+      <module name="demotestweibo" target="1.8" />
+      <module name="demoweibo" target="1.8" />
+      <module name="domain" target="1.8" />
+      <module name="echarts" target="1.8" />
+      <module name="mall" target="1.8" />
+      <module name="nio" target="1.8" />
+      <module name="portal" target="1.8" />
+      <module name="pportal" target="1.8" />
+      <module name="ppportal" target="1.8" />
+      <module name="qqlogin" target="1.8" />
+      <module name="restful" target="1.8" />
+      <module name="restful1" target="1.8" />
+      <module name="restfuls" target="1.8" />
+      <module name="sso" target="1.8" />
+      <module name="test1resultful" target="1.8" />
+      <module name="testcheck" target="1.8" />
+      <module name="testfreemarker" target="1.8" />
+      <module name="testportal" target="1.8" />
+      <module name="testresultful" target="1.8" />
+      <module name="testshiro" target="1.5" />
+      <module name="tmy" target="1.8" />
+      <module name="zmstest1" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

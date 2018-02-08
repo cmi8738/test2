@@ -1,0 +1,7 @@
+{
+  "rows":[
+    {"id":1,"text":"手机","root":0},
+    {"id":2,"text":"品牌","_parentId":1},
+    {"id":3,"text":"三星","_parentId":2}
+  ]
+}

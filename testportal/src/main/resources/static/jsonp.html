@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+
+    <script>
+        function s3(x) {
+            alert(x);
+        }
+        function call() {
+            //不能直接跨域访问
+            // $.get("http://localhost:8081/category/print",function (d) {
+            //     alert(d);
+            // });
+           $.ajax({
+               url:"http://localhost:8081/category/print",
+               method:"get",
+               dataType:"jsonp"
+           });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="call()">异步访问</button>
+</body>
+</html>

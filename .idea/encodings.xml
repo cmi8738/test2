@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/actiontest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cross" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo3" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demoport" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demoresultful" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demotest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demotestweibo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demoweibo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/domain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/echarts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qqlogin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sso" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test1resultful" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testcheck" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testfreemarker" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testportal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testresultful" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testshiro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tmy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zmstest1" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/easyui.css"/>
+    <link rel="stylesheet" href="css/icon.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/easyui.js"></script>
+    <script src="js/easyui-lang-zh_CN.js"></script>
+    <script src="js/ckeditor/ckeditor.js"></script>
+    <script>
+        function commidtyinit(){
+            $("#commodity_grid").datagrid({
+               title:"商品管理",
+                url:"commidty/findAllCommodity",
+                method:"get",
+               columns:[[
+
+                   {field:"cid",title:"cid"},
+                   {field:"name",title:"名称"},
+                   {field:"price",title:"价格"}
+               ]],
+               toolbar:[
+                   {text:"添加",iconCls:"icon-add",handler:function(){
+                       toAddCommidty();
+                       }},
+                   {
+                    text:"上架",iconCls:"icon-search",handler:function(){
+                        shangjia();
+                       }
+                   }
+
+               ]
+            });
+            CKEDITOR.replace("content");
+        }
+        $(commidtyinit);
+        function toAddCommidty(){
+            $("#categoryid").combotreegrid({
+                idField:"id",
+                treeField:"name",
+                columns:[[
+                    {field:"id",title:"id",width:97},
+                    {field:"name",title:"名称",width:100}
+                ]]
+            });
+
+            $.get("findAllManagerments",function(data){
+                alert(data);
+               var o = {rows:data};
+               var x = JSON.stringify(o);
+               alert(x);
+               var p = /"_parentId":0/g;
+               x = x.replace(p,"\"root\":0");
+                alert(x);
+               var y = JSON.parse(x);
+               alert(y);
+               $("#categoryid").combotreegrid("grid").treegrid("loadData",y);
+
+            });
+            $("#window_commodity_add").window("open");
+        }
+
+        function saveCommidty(){
+            var fdata = new FormData(document.getElementById("form_commodity_add"));
+            var x = CKEDITOR.instances.content.getData();
+            fdata.append("content",x);
+            $.ajax({
+               url:"commidty/addCommidty",
+               method:"post",
+               data:fdata,
+               contentType:false,
+               processData:false,
+               success:function(d){
+                   alert(d);
+               }
+            });
+        }
+
+        function shangjia(){
+            var commidty=$("#commodity_grid").datagrid("getSelected");
+            $.get("commidty/shangJiaCommodity/" + commidty.cid,function(d){
+                alert(d);
+            });
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <div id="commodity_grid"></div>
+    <div id="window_commodity_add" class="easyui-window" data-options="title:'添加商品',modal:true,closed:true" style="display:flex;justify-content:center;flex-flow:column;width:100%;height:600px" >
+        <form id="form_commodity_add">
+            <div style="margin-bottom: 20px">
+                名称:
+                <input   name="name"     class="easyui-textbox" />
+            </div>
+            <div style="margin-bottom: 20px">
+                价格:<input   name="price" class="easyui-textbox"/>
+            </div>
+            <div style="margin-bottom: 20px">
+            类别:<select id="categoryid"   style="width:200px;"/>
+            </div>
+            <div style="margin-bottom: 20px">
+                图片:<input   name="f1" class="easyui-filebox"/>
+            </div>
+        </form>
+        商品描述：
+        <textarea name="content" rows="3" style="width: 100%;height: 300px"></textarea>
+        <div>
+            <button onclick="saveCommidty()" style="width:80%;height:50px" class="easyui-linkbutton">保存</button>
+        </div>
+    </div>
+</body>
+</html>
